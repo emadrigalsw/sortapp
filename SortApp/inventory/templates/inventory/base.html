@@ -1,10 +1,13 @@
 <head>
+  {% block head %}
+  {% endblock %}
 </head>
-<body>
-<a href="{% url 'home' %}"><h2>Home</h2></a>  
-<h1> SortApp </h1>
-<h3>Manage your Deli</h3>
-<br>
-{% block content %}
-{% endblock %}
+
+<body>  
+    <a href="{% url 'home' %}"><h2>Home</h2></a>  
+    <h1> SortApp </h1>
+    <h3>Manage your Deli</h3>
+    <br>
+    {% block content %}
+    {% endblock %}
 </body>
