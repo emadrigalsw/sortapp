@@ -28,8 +28,26 @@ class Pantry(ListView):
 
 class AddIngredient(CreateView):
     """
-    Creates a new ingredient with the corresponding model, template and form.
+    Creates a new ingredient, with the corresponding model, template and form.
     """
     model = Ingredient
     template_name = "inventory/add_ingredient.html"
     form_class = IngredientForm
+
+
+class UpdateIngredientView(UpdateView):
+    """
+    Changes an existent ingredient, with the corresponding model, template and form.
+    """
+    model = Ingredient
+    template_name = "inventory/update_ingredient.html"
+    form_class = IngredientForm
+
+
+class DeleteIngredientView(DeleteView):
+    """
+    Changes an existent ingredient, with the corresponding model, template and form.
+    """
+    model = Ingredient
+    template_name = "inventory/delete_ingredient.html"
+    success_url = "/pantry"
