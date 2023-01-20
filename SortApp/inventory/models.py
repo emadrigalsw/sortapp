@@ -7,6 +7,10 @@ from django.db import models
 
 
 class Ingredient(models.Model):
+    """
+    Stores all the ingredients to be displayed on the Pantry view,
+    related to :view:`Pantry` and :view:`CreateIngredient`.
+    """
 
     POUNDS = "PD"
     KILOGRAMS = "KG"
@@ -38,6 +42,10 @@ class Ingredient(models.Model):
 
 
 class MenuItem(models.Model):
+    """
+    Stores all the Menus to be displayed to users
+    related to :view:`` and :view:``.
+    """
     title = models.CharField(max_length=20)
     price = models.DecimalField(max_digits=5, decimal_places=2)
 
@@ -46,6 +54,10 @@ class MenuItem(models.Model):
 
 
 class Purchase(models.Model):
+    """
+    Stores all the Purchases to be displayed to users
+    related to :view:`` and :view:``.
+    """
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     timestamp = models.DateTimeField()
     # The next is in the case we want to keep the registry of all Purchases associated to a menu,even if the menu_item is deleted
@@ -60,8 +72,11 @@ class Purchase(models.Model):
 
 
 class RecipeRequirement(models.Model):
+    """
+    Stores all the Recipes to be displayed to users
+    related to :view:`` and :view:``.
+    """
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
-    # ingredient attribute is a ManyToManyField becouse a RecipeRequirement can have 1 or more ingredients related
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     quantity = models.FloatField()
 
