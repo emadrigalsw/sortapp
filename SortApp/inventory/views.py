@@ -1,11 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Ingredient
 from .forms import IngredientForm
-
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.contrib.auth import logout
 # Create your views here.
 
 
+# @login_required
 def home(request):
     """
      Displays home page.
@@ -14,14 +19,22 @@ def home(request):
 
      :template:`inventory/home.html`
      """
-    context = {'text': 'Welcome to SortApp, your Deli manager'}
+    context = {
+        'text': 'Welcome to SortApp, your Deli manager, please Log in to use the app'}
     return render(request, 'inventory/home.html', context)
 
 
-class Pantry(ListView):
+def logout_request(request):
+
+    logout(request)
+    return redirect('home')
+
+
+class Pantry(LoginRequiredMixin, ListView):
     """
     Displays the Pantry view, the list of ingredients.
     """
+
     model = Ingredient
     template_name = "inventory/pantry.html"
 
