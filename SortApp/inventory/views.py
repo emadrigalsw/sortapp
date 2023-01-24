@@ -20,7 +20,7 @@ def home(request):
 
 class Pantry(ListView):
     """
-    Displays the Pantry view, the list of elements.
+    Displays the Pantry view, the list of ingredients.
     """
     model = Ingredient
     template_name = "inventory/pantry.html"
@@ -46,7 +46,7 @@ class UpdateIngredientView(UpdateView):
 
 class DeleteIngredientView(DeleteView):
     """
-    Changes an existent ingredient, with the corresponding model, template and form.
+    Deletes an existent ingredient, with the corresponding model, template and form.
     """
     model = Ingredient
     template_name = "inventory/delete_ingredient.html"

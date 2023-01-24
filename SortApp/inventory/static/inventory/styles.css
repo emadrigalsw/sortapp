@@ -1,6 +1,6 @@
 /* Estilo para el fondo de la cabecera */
 header {
-    background-color: #4da6ff;
+    background-color: #1557ff;
   }
   
   /* Estilo para el texto de la cabecera */
@@ -31,12 +31,12 @@ body {
   }
   
   .my-table th {
-    background-color: #4da6ff;
+    background-color: #1557ff;
     color: white;
   }
 
   .my-button {
-    background-color: #4da6ff;
+    background-color: #1557ff;
     color: white;
     border: none;
     padding: 8px 16px;

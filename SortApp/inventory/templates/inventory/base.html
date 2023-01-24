@@ -1,13 +1,26 @@
+
+{% load static %}
 <head>
   {% block head %}
+
+
   {% endblock %}
 </head>
 
 <body>  
-    <a href="{% url 'home' %}"><h2>Home</h2></a>  
-    <h1> SortApp </h1>
-    <h3>Manage your Deli</h3>
-    <br>
+  <link rel="stylesheet" type="text/css" href="{% static 'inventory/header.css' %}">
+
+  <div class="header">
+      <img src="{% static 'inventory/Coffee_logo.png' %}" width="80" height="65.4" >
+      <div class="header-content">
+          <h1 class="header-title">SortApp</h1>
+      </div>
+  </div>
+  <nav class="navbar">
+      <a class="nav-item" href="{% url 'home' %}">Home</a>
+      <a class="nav-item" href="{% url 'pantry' %}">Pantry</a>
+  </nav>  
+ 
     {% block content %}
     {% endblock %}
 </body>
