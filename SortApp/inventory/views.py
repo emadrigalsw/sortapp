@@ -12,7 +12,7 @@ from django.contrib.auth import logout
 # Create your views here.
 
 
-def home(request):
+def index(request):
     """
      Displays home page.
 
@@ -22,13 +22,13 @@ def home(request):
      """
     context = {
         'text': 'Welcome to SortApp, your Deli manager, please Log in to use the app.'}
-    return render(request, 'inventory/home.html', context)
+    return render(request, 'inventory/index.html', context)
 
 
 def logout_request(request):
 
     logout(request)
-    return redirect('home')
+    return redirect('index')
 
 
 class Pantry(LoginRequiredMixin, ListView):
