@@ -1,0 +1,17 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'inventory/header.css' %}">
+{% endblock %}
+
+{% block content %}
+<header>
+    <h2>Home Page</h2>
+    <p>{{text}}</p>
+    <p>Username: test</p>
+    <p>Password: Tester098</p>
+    <p>After login, go to Pantry an the main menu, to check the functional CRUD!</p>
+</header>
+
+{% endblock %}

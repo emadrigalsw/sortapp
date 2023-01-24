@@ -1,0 +1,46 @@
+/* Estilo para el fondo de la cabecera */
+header {
+    background-color: #1557ff;
+  }
+  
+  /* Estilo para el texto de la cabecera */
+  header h1, header h2, header h3 {
+    color: white;
+  }
+  
+  /* Estilo para los enlaces de la cabecera */
+  header a {
+    color: white;
+    text-decoration: none;
+  }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+.my-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  .my-table th, .my-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .my-table th {
+    background-color: #1da1f2;
+    color: white;
+  }
+
+  .my-button {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
