@@ -2,7 +2,7 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.index, name='index'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('pantry/', views.Pantry.as_view(), name='pantry'),
     path('pantry/addingredient/',

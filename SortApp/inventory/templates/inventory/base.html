@@ -23,12 +23,12 @@
   </div>
   {% if user.username %}
   <nav class="navbar">
-      <a class="nav-item" href="{% url 'home' %}">Home</a>
+      <a class="nav-item" href="{% url 'index' %}">Home</a>
       <a class="nav-item" href="{% url 'pantry' %}">Pantry</a>
   </nav>  
   {% else %}
   <nav class="navbar">
-    <a class="nav-item" href="{% url 'home' %}">Home</a>
+    <a class="nav-item" href="{% url 'index' %}">Home</a>
   </nav>  
   {% endif %}
   {% if user.username %}
