@@ -1,0 +1,39 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'inventory/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Menu</h2>
+<p>These is the menu you have avaliable right now!</p>
+
+<a href="{% url "create_menu" %}" class="my-button">+ Add Menu</a>
+
+<br>
+<br>
+<table class="my-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for item in object_list %}  
+        <tr>
+            <td>{{ item.title }}</td>
+            <td>{{ item.price }}</td>
+            <td>
+                <a href="{% url "update_menu" item.id %}" style="text-decoration: none; color: inherit;">✎</a>
+                <a href="{% url "delete_menu" item.id %}" style="text-decoration: none; color: inherit;">❌</a>
+            </td>
+        </tr>  
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
