@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from .models import Ingredient, MenuItem
+from .models import Ingredient, MenuItem, RecipeRequirement
 from .forms import IngredientForm, MenuForm
 # from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 # from django.urls import reverse_lazy
 from django.contrib.auth import logout
+from django.views import View
 
 
 # Create your views here.
@@ -32,7 +33,7 @@ def logout_request(request):
 
 
 """
-The Pantry clases.
+Pantry view clases.
 """
 
 
@@ -72,13 +73,14 @@ class DeleteIngredientView(DeleteView):
 
 
 """
-The Menu clases.
+Menu views.
 """
 
 
 class Menu(LoginRequiredMixin, ListView):
+
     """
-    Displays the Menu view, the list of avaliable menus.
+    Displays the menu view, the list of the avaliable menu.
     """
     model = MenuItem
     template_name = "inventory/menu.html"
@@ -86,7 +88,7 @@ class Menu(LoginRequiredMixin, ListView):
 
 class AddMenu(CreateView):
     """
-    Creates a new ingredient, with the corresponding model, template and form.
+    Creates a new menu, with the corresponding model, template and form.
     """
     model = MenuItem
     template_name = "inventory/add_menu.html"
@@ -95,7 +97,7 @@ class AddMenu(CreateView):
 
 class UpdateMenuView(UpdateView):
     """
-    Changes an existent ingredient, with the corresponding model, template and form.
+    Changes an existent menu, with the corresponding model, template and form.
     """
     model = MenuItem
     template_name = "inventory/update_menu.html"
@@ -104,8 +106,27 @@ class UpdateMenuView(UpdateView):
 
 class DeleteMenuView(DeleteView):
     """
-    Deletes an existent ingredient, with the corresponding model, template and form.
+    Deletes an existent menu, with the corresponding model, template and form.
     """
     model = MenuItem
     template_name = "inventory/delete_menu.html"
     success_url = "/menu"
+
+
+"""
+Receips view clases.
+"""
+
+
+class Recipe(LoginRequiredMixin, ListView):
+    """
+    Displays the menu view, the list of the avaliable menu.
+    """
+    model = RecipeRequirement
+    template_name = "inventory/menu.html"
+
+
+class UpdateRecipeView(View):
+    """
+    Returns only the Filtered Elements to render them on the update_menu template.
+    """
