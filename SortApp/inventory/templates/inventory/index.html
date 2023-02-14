@@ -1,7 +1,11 @@
+<!DOCTYPE html>
+<html>
 {% extends './base.html' %}
 {% load static %}
 
+
 {% block head %}
+<title>Home Page | SortApp</title>
 <link rel="stylesheet" href="{% static 'inventory/header.css' %}">
 {% endblock %}
 
@@ -9,10 +13,14 @@
 <header>
     <h2>Home Page</h2>
     <p>{{text}}</p>
-    <p>Username: test</p>
-    <p>Password: Tester098</p>
+    <ul>
+        <li>Username: test</li>
+        <li>Password: Tester098</li>
+    </ul>
+    
     <br>
     <p>After login, go to Pantry at the main menu, to check the functional CRUD!</p>
 </header>
 
 {% endblock %}
+</html>
